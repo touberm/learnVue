@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <p>原始字符串:{{message}}</p>
+    <p>计算后反转字符串:{{reverseMessage}}</p>
+  </div>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el:'#app',
+      data:{
+        message:'LearnVue!'
+      },
+      computed:{
+        //计算属性的getter
+        reverseMessage:function(){
+          //this指向vm实例
+          return this.message.split('').reverse().join('');
+        }
+      }
+    })
+  </script>
+</body>
+</html>

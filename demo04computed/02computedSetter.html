@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{site}}</p>
+  </div>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el:'#app',
+      data:{
+        name:'Learn',
+        url:'Vue'
+      },
+      computed:{
+        site:{
+          //getter
+          get:function(){
+            return this.name + '' + this.url;
+          },
+          //setter
+          set:function(newValue){
+            var names = newValue.split(' ');
+            this.name = names[0];
+            this.url = names[names.length-1];
+          }
+        }
+      }
+    });
+    //
+    vm.site = 'LearnVue Site';
+    document.write('name: '+ vm.name);
+    document.write('<br>');
+    document.write('url: ' + vm.url);
+
+
+    /*http://www.runoob.com/vue2/vue-computed.html*/
+  </script>
+</body>
+</html>
