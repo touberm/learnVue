@@ -1,0 +1,24 @@
+<!-- v-model 指令来实现双向数据绑定 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <input type="text" v-model='message'>
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        message:'learnVue'
+      }
+    })
+  </script>
+
+</body>
+</html>

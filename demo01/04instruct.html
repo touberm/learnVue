@@ -1,0 +1,31 @@
+<!--
+指令
+指令是带有 v- 前缀的特殊属性。
+指令用于在表达式的值改变时，将某些行为应用到 DOM 上 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <p v-if="seen">现在你看到我了</p>
+    <!--  v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素。 -->
+    <template v-if="ok">
+      <h1>LearnVue</h1>
+      <p>学的不仅是技术,更是梦想!</p>
+      <p>哈哈哈,打字好辛苦啊!!!</p>
+    </template>
+  </div>
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        seen:true,
+        ok:true
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <p v-if="seen">You can see me,now.</p>
+    <template v-if='ok'>
+      <h1>LearnVue</h1>
+      <p>It's not only study,but dream!</p>
+      <p>Hahaha,it's heard to typeIn.</p>
+    </template>
+
+    <div v-if="Math.random() > 0.5">
+      Sorry
+    </div>
+    <div v-else>
+      Not sorry
+    </div>
+
+    <div v-if="type === 'A'">
+      A
+    </div>
+    <div v-else-if="type === 'B'">
+      B
+    </div>
+    <div v-else-if="type === 'C'">
+      C
+    </div>
+    <div v-else>
+      Not A/B/C
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        seen:true,
+        ok:true,
+        type:'C'
+      }
+    })
+  </script>
+
+</body>
+</html>

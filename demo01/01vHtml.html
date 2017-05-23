@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <div v-html='message1'></div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        message:'VueLearnStart',
+        message1:'<h2>v-html指令输出HTML代码</h2>'
+      }
+    })
+  </script>
+</body>
+</html>
