@@ -1,0 +1,52 @@
+<!-- v-for 迭代对象 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+    <!-- v-for 可以通过一个对象的属性来迭代数据： -->
+      <li v-for='value in object'>
+        {{value}}
+      </li>
+    </ul>
+
+    <!-- 你也可以提供第二个的参数为键名： -->
+    <ul>
+      <li v-for='(value,key) in object'>
+        {{key}} : {{value}}
+      </li>
+    </ul>
+
+    <!-- 第三个参数为索引： -->
+    <ul>
+      <li v-for='(value, key, index) in object'>
+        {{index}}.{{key}}:{{value}}
+      </li>
+    </ul>
+
+    <!-- v-for 也可以循环整数 -->
+    <ul>
+      <li v-for='n in 10'>
+        {{n}}
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        object:{
+          name:'Learn',
+          url:'the',
+          slogan:'Vue'
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

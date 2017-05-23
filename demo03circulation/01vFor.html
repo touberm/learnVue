@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <ol>
+      <li v-for="site in sites">
+        {{site.name}}
+      </li>
+    </ol>
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        sites:[
+          {name:'Learn'},
+          {name:'The'},
+          {name:'Vue'}
+        ]
+      }
+    })
+  </script>
+</body>
+</html>
