@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+  <style type="text/css">
+    .active{
+      width:100px;
+      height:100px;
+      background: green;
+    }
+    .text-danger{
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div v-bind:class="{active : isActive}"></div>
+    <br>
+    <div class="static" v-bind:class="{active:isActive,'text-danger':hasError}"></div>
+    <br>
+    <div v-bind:class="classsObject"></div>
+    <br>
+    <div v-bind:class="classObject1"></div>
+  </div>
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        isActive : true,
+        hasError : true,
+        error:null,
+        classsObject:{
+          active : true,
+          'text-danger': false
+        }
+      },
+      computed:{
+        classObject1:function(){
+          return {
+            active : this.isActive && !this.error,'text-danger':this.error && this.error.type === 'fatal',
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

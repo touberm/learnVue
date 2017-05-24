@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+  <style type="text/css"></style>
+</head>
+<body>
+  <div id="app">
+    <div v-bind:style="{color:activeColor,fontSize:fontSize + 'px'}">LearnVue1</div>
+
+    <!-- 也可以直接绑定到一个样式对象，让模板更清晰 -->
+    <div v-bind:style="styleObject">LearnVue2</div>
+    <!-- v-bind:style 可以使用数组将多个样式对象应用到一个元素上： -->
+    <div v-bind:style="[baseStyles,overridingStyles]">LearnVue3</div>
+  </div>
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        activeColor:'green',
+        fontSize:30,
+        styleObject:{
+          color:'green',
+          fontSize:'30px'
+        },
+        baseStyles:{
+          color:'green',
+          fontSize:'30px'
+        },
+        overridingStyles:{
+          'font-weight':'bold'
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
