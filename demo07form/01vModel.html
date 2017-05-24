@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <p>input元素:</p>
+    <input type="text" v-model="message" placeholder="编辑我">
+    <p>消息是:{{message}}</p>
+    <p>textarea 元素:</p>
+    <p style="white-space:pre">{{message2}}</p>
+    <textarea name="" id="" cols="30" rows="10" v-model="message2" placeholder="多行文本输入"></textarea>
+
+
+    <!-- 复选框如果是一个为逻辑值，如果是多个则绑定到同一个数组： -->
+    <p>单个复选框:</p>
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for='checkbox'>{{checked}}</label>
+    <br>
+    <p>多个复选框:</p>
+    <input type="checkbox" id='box1' value='Learn' v-model='checkedNames'>
+    <label for="box1">Learn</label>
+    <input type="checkbox" id='box2' value='The' v-model='checkedNames'>
+    <label for="box2">The</label>
+    <input type="checkbox" id='box3' value='Vue' v-model='checkedNames'>
+    <label for="box3">Vue</label>
+    <br>
+    <span>选择的值为:{{checkedNames}}</span>
+    <br>
+    <!-- 以下实例中演示了单选按钮的双向数据绑定 -->
+    <input type="radio" id='radio1' value='LearnTheVue' v-model='picked'>
+    <label for='raido1'>LearnTheVue</label>
+    <input type="radio" id='radio2' value='of Radio' v-model='picked'>
+    <label for='raido2'>of&nbsp;Radio</label>
+    <br>
+    <span>选中值为:{{picked}}</span>
+
+    <!-- 以下实例中演示了下拉列表的双向数据绑定： -->
+    <select name="fruit" id="" v-model="selected">
+      <option value="">选择一个选项</option>
+      <option value="Learn">Learn</option>
+      <option value="TheVue">TheVue</option>
+    </select>
+    <div id="output">
+      选择的是:{{selected}}
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        message:'Learn',
+        message2:'Vue',
+        checked:false,
+        checkedNames:[],
+        picked:'LearnTheVue',
+        selected:''
+      }
+    })
+  </script>
+</body>
+</html>
