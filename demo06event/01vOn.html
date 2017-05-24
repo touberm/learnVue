@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="counter += 1">增加1</button>
+    <p>这个按钮被点击了{{counter}}次</p>
+    <!--  通常情况下，我们需要使用一个方法来调用 JavaScript 方法。
+    v-on 可以接收一个定义的方法来调用。
+    -->
+    <button v-on:click="greet">Greet</button>
+    <br>
+    <!-- 除了直接绑定到一个方法，也可以用内联 JavaScript 语句： -->
+    <button v-on:click="say('hi')">Say hi</button>
+    <button v-on:click="say('what')">Say what</button>
+
+
+
+
+  </div>
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      data:{
+        name:'Vue.js',
+        counter:0
+      },
+      //在 method对象中定义方法
+      methods:{
+        greet:function(event){
+          //this 在方法里指当前Vue实例
+          alert('Hello'+this.name +'!');
+          //event 是原生DOM事件
+          if(event){
+            alert(event.target.tagName);
+          }
+        },
+        say:function(message){
+          alert(message);
+        }
+      }
+    })
+    //也可以用JavaScript直接调用方法
+    app.greet();
+  </script>
+
+</body>
+</html>
