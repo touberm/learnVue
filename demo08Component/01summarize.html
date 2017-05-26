@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='../vue.min.js'></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 全局组件 -->
+    <learnvue></learnvue>
+    <!-- Ps:html标签不区分大小写,而js区分,故应该用小写 -->
+
+    <!-- 局部组件
+      可以在实例选项中注册局部组件，这样组件只能在这个实例中使用
+    -->
+    <partvue></partvue>
+
+    <!-- prop 是父组件用来传递数据的一个自定义属性。
+父组件的数据需要通过 props 把数据传给子组件，子组件需要显式地用 props 选项声明 "prop"：
+ -->
+    <propvue message='props'></propvue>
+
+  </div>
+
+  <script type="text/javascript">
+    //注册
+    Vue.component('learnvue',{
+      template:'<h1>全局组件!</h1>'
+    })
+
+    var Child = {
+      template : '<h2>自定义组件!</h2>'
+    }
+
+    // 注册
+    Vue.component('propvue',{
+      //声明props
+      props:['message'],
+      //同样也可以在vm事例中像'this.message'这样使用
+      template:'<span>{{message}}</span>'
+    })
+
+
+
+    //创建根实例
+    new Vue({
+      el:'#app',
+      components:{
+        //partvue将只在父模板可用
+        'partvue':Child
+      }
+    })
+
+
+
+
+
+
+  </script>
+</body>
+</html>
